@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>B</title>
+  <title>Trauma Team .INT</title>
   <style>
     :root {
       --bg-color: #000000;
@@ -930,7 +930,7 @@
         <div class="doctor-card">
           <div class="doctor-image-container">
             <img src="doctor1.jpg" alt="Dr. Sharma"
-                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👨‍⚕️</div>';">
+                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👨‍⚕️</div>'; ">
           </div>
           <h4>Dr. R. Sharma</h4>
           <p>Chief Medical Officer</p>
@@ -938,7 +938,7 @@
         <div class="doctor-card">
           <div class="doctor-image-container">
             <img src="doctor2.png" alt="Dr. Gupta"
-                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👩‍⚕️</div>';">
+                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👩‍⚕️</div>'; ">
           </div>
           <h4>Dr. M. Gupta</h4>
           <p>Orthopedic & Plastic Surgeon</p>
@@ -946,7 +946,7 @@
         <div class="doctor-card">
           <div class="doctor-image-container">
             <img src="doctor3.png" alt="Dr. Jyoti"
-                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👨‍⚕️</div>';">
+                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👨‍⚕️</div>'; ">
           </div>
           <h4>Dr. Jyoti</h4>
           <p>Chief Neurosurgeon</p>
@@ -1012,7 +1012,7 @@
       <div class="dash-header">
         <div>
           <div class="dash-title">User Dashboard</div>
-          <div class="dash-tagline" id="dashUserTagline">Welcome, authenticated user</div>
+          <div class="dash-tagline" id="dashUserTagline">Welcome, ⚔ Operator ⚔</div>
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
           <button class="btn btn-secondary" id="dashBookBtn">Book Consultation</button>
@@ -1057,7 +1057,7 @@
     <section id="adminDashboard" class="container js-scroll dashboard" style="display:none;">
       <div class="dash-header">
         <div>
-          <div class="dash-title">Admin Console</div>
+          <div class="dash-title">NetRunner Medical Command</div>
           <div class="dash-tagline">Monitor and update all Trauma Team appointments</div>
         </div>
         <button class="btn btn-secondary" id="adminLogoutBtn">Logout Admin</button>
@@ -1218,7 +1218,7 @@
   </div>
 
   <script>
-    // CONFIG - IMPORTANT: no /api here
+    // CONFIG
     const API_BASE_URL = "https://traumateam-backend.onrender.com";
 
     let authToken = null;
@@ -1408,6 +1408,7 @@
     // LOADING
     window.addEventListener("load", () => {
       const loading = document.getElementById("loadingScreen");
+      if (!loading) return;
       setTimeout(() => {
         loading.style.opacity = "0";
         setTimeout(() => (loading.style.display = "none"), 500);
@@ -1448,6 +1449,8 @@
       const quickOptions = document.getElementById("quickOptions");
       const typingIndicator = document.getElementById("typingIndicator");
 
+      if (!chatToggle || !chatContainer || !chatMessages || !quickOptions || !typingIndicator) return;
+
       const botResponses = {
         emergency:
           "🚨 EMERGENCY PROTOCOL ACTIVATED! Trauma Team units are en route. Keep area clear and follow basic life support steps.",
@@ -1481,15 +1484,13 @@
         }, 1500);
       }
 
-      if (chatToggle)
-        chatToggle.addEventListener("click", () => {
-          chatContainer.style.display = "flex";
-        });
+      chatToggle.addEventListener("click", () => {
+        chatContainer.style.display = "flex";
+      });
 
-      if (closeChat)
-        closeChat.addEventListener("click", () => {
-          chatContainer.style.display = "none";
-        });
+      closeChat.addEventListener("click", () => {
+        chatContainer.style.display = "none";
+      });
 
       document.querySelectorAll(".quick-option").forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -1538,6 +1539,16 @@
       const adminPass = document.getElementById("adminPass");
       const adminLoginBtn = document.getElementById("adminLoginBtn");
       const adminLoginMessage = document.getElementById("adminLoginMessage");
+
+      if (
+        !backdrop || !tabOtp || !tabCreds || !otpPane || !credsPane || !adminPane ||
+        !otpEmail || !otpCode || !otpInputGroup || !otpStepLabel || !otpActionBtn ||
+        !otpMessage || !credentialsBox || !credUserId || !credPassword ||
+        !loginUserId || !loginPassword || !loginCredsBtn || !credsMessage ||
+        !adminUser || !adminPass || !adminLoginBtn || !adminLoginMessage
+      ) {
+        return;
+      }
 
       let otpStep = 1;
 
@@ -1706,10 +1717,10 @@
       tabCreds.addEventListener("click", () => setActiveTab("creds"));
 
       // Open/close modal
-      navLogin.addEventListener("click", () => openModal("user"));
-      heroLoginBtn.addEventListener("click", () => openModal("user"));
-      adminLoginLink.addEventListener("click", () => openModal("admin"));
-      closeBtn.addEventListener("click", closeModal);
+      if (navLogin) navLogin.addEventListener("click", () => openModal("user"));
+      if (heroLoginBtn) heroLoginBtn.addEventListener("click", () => openModal("user"));
+      if (adminLoginLink) adminLoginLink.addEventListener("click", () => openModal("admin"));
+      if (closeBtn) closeBtn.addEventListener("click", closeModal);
       backdrop.addEventListener("click", (e) => {
         if (e.target === backdrop) closeModal();
       });
@@ -1734,22 +1745,26 @@
       const adminTotal = document.getElementById("adminTotal");
       const adminAppointmentsBody = document.getElementById("adminAppointmentsBody");
 
+      if (!userDash || !adminDash || !bookSection || !userAppointmentsBody || !adminAppointmentsBody) {
+        return;
+      }
+
       function showUserDashboard() {
         if (!currentUser || isAdmin) return;
         hideElement(adminDash);
         showElement(userDash);
         showElement(bookSection);
         if (dashUserTagline && currentUser) {
-          dashUserTagline.textContent =
-            "Welcome, " + (currentUser.name || currentUser.email || currentUser.user_id);
+          const name = currentUser.name || currentUser.email || currentUser.user_id || "Operator";
+          dashUserTagline.textContent = "Welcome, ⚔ " + name + " ⚔";
         }
         api.getMyAppointments().then((apps) => {
           if (!apps || apps.length === 0) {
             userAppointmentsBody.innerHTML =
               '<tr><td colspan="4" style="text-align:center; color:var(--text-secondary);">No appointments yet.</td></tr>';
-            statTotal.textContent = "0";
-            statConfirmed.textContent = "0";
-            statPending.textContent = "0";
+            if (statTotal) statTotal.textContent = "0";
+            if (statConfirmed) statConfirmed.textContent = "0";
+            if (statPending) statPending.textContent = "0";
             return;
           }
           let confirmed = 0, pending = 0;
@@ -1763,9 +1778,9 @@
               <td>${renderStatusPill(a.status)}</td>
             </tr>`;
           }).join("");
-          statTotal.textContent = apps.length;
-          statConfirmed.textContent = confirmed;
-          statPending.textContent = pending;
+          if (statTotal) statTotal.textContent = apps.length;
+          if (statConfirmed) statConfirmed.textContent = confirmed;
+          if (statPending) statPending.textContent = pending;
         });
       }
 
@@ -1779,10 +1794,10 @@
         if (!apps || apps.length === 0) {
           adminAppointmentsBody.innerHTML =
             '<tr><td colspan="5" style="text-align:center; color:var(--text-secondary);">No appointments found.</td></tr>';
-          adminTotal.textContent = "0";
+          if (adminTotal) adminTotal.textContent = "0";
           return;
         }
-        adminTotal.textContent = apps.length;
+        if (adminTotal) adminTotal.textContent = apps.length;
         adminAppointmentsBody.innerHTML = apps.map((a) => `
           <tr>
             <td>${a.patient}</td>
@@ -1803,11 +1818,16 @@
         hideElement(bookSection);
         const emailInput = document.getElementById("email");
         if (emailInput) emailInput.value = "";
-        localStorage.removeItem("tti_auth");
+        try {
+          localStorage.removeItem("tti_auth");
+        } catch (_) {}
       }
 
       function loadFromStorage() {
-        const raw = localStorage.getItem("tti_auth");
+        let raw = null;
+        try {
+          raw = localStorage.getItem("tti_auth");
+        } catch (_) {}
         if (!raw) return;
         try {
           const saved = JSON.parse(raw);
@@ -1830,17 +1850,21 @@
 
       window.persistAuth = function () {
         if (!authToken || !currentUser) return;
-        localStorage.setItem("tti_auth", JSON.stringify({ token: authToken, user: currentUser, isAdmin }));
+        try {
+          localStorage.setItem("tti_auth", JSON.stringify({ token: authToken, user: currentUser, isAdmin }));
+        } catch (_) {}
       };
 
-      navDashboard.addEventListener("click", () => {
-        if (!currentUser) {
-          alert("Please login first.");
-          return;
-        }
-        if (isAdmin) showAdminDashboard();
-        else showUserDashboard();
-      });
+      if (navDashboard) {
+        navDashboard.addEventListener("click", () => {
+          if (!currentUser) {
+            alert("Please login first.");
+            return;
+          }
+          if (isAdmin) showAdminDashboard();
+          else showUserDashboard();
+        });
+      }
 
       if (dashBookBtn)
         dashBookBtn.addEventListener("click", () => {
@@ -1868,7 +1892,7 @@
         appointmentDateInput.min = today;
       }
 
-      if (showFormBtn) {
+      if (showFormBtn && bookingForm) {
         showFormBtn.addEventListener("click", () => {
           bookingForm.style.display = "block";
           showFormBtn.style.display = "none";
@@ -1883,12 +1907,24 @@
           return;
         }
 
-        const name = document.getElementById("patientName").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const doctor = document.getElementById("doctor").value;
-        const date = document.getElementById("appointmentDate").value;
-        const time = document.getElementById("appointmentTime").value;
-        const notes = document.getElementById("message").value.trim();
+        const nameEl = document.getElementById("patientName");
+        const emailEl = document.getElementById("email");
+        const doctorEl = document.getElementById("doctor");
+        const dateEl = document.getElementById("appointmentDate");
+        const timeEl = document.getElementById("appointmentTime");
+        const notesEl = document.getElementById("message");
+
+        if (!nameEl || !emailEl || !doctorEl || !dateEl || !timeEl) {
+          setMessage(formMessage, "Form not initialized correctly.", "error");
+          return;
+        }
+
+        const name = nameEl.value.trim();
+        const email = emailEl.value.trim();
+        const doctor = doctorEl.value;
+        const date = dateEl.value;
+        const time = timeEl.value;
+        const notes = notesEl ? notesEl.value.trim() : "";
 
         if (!name || !doctor || !date || !time) {
           setMessage(formMessage, "Please fill all required fields.", "error");
@@ -1896,6 +1932,11 @@
         }
 
         const submitBtn = document.getElementById("submitBooking");
+        if (!submitBtn) {
+          setMessage(formMessage, "Submit button missing.", "error");
+          return;
+        }
+
         const originalText = submitBtn.textContent;
         submitBtn.textContent = "Processing...";
         submitBtn.disabled = true;
@@ -1922,7 +1963,7 @@
           setTimeout(() => {
             bookingForm.reset();
             bookingForm.style.display = "none";
-            showFormBtn.style.display = "inline-flex";
+            if (showFormBtn) showFormBtn.style.display = "inline-flex";
             if (window.updateUIAfterLogin) window.updateUIAfterLogin();
           }, 1200);
         } else {
