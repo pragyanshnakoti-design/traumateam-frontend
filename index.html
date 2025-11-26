@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Trauma Team International - Elite Neural Console</title>
+  <title>B</title>
   <style>
-    /* --- CSS VARIABLES & BASE THEME --- */
     :root {
       --bg-color: #000000;
       --primary-dark: #1a1a1a;
@@ -44,21 +43,15 @@
     body::before {
       content: '';
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background-color: rgba(0, 0, 0, 0.85);
       z-index: -1;
     }
 
-    /* --- LOADING SCREEN --- */
+    /* LOADING */
     #loadingScreen {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background-color: var(--bg-color);
       display: flex;
       flex-direction: column;
@@ -67,14 +60,12 @@
       z-index: 9999;
       transition: opacity 0.5s ease-out;
     }
-
     .loading-logo {
       height: 80px;
       margin-bottom: 30px;
       mix-blend-mode: screen;
       filter: drop-shadow(0 0 10px var(--accent-red));
     }
-
     .spinner {
       width: 50px;
       height: 50px;
@@ -84,12 +75,10 @@
       animation: spin 1s linear infinite;
       margin-bottom: 20px;
     }
-
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
     .loading-text {
       color: var(--text-primary);
       font-size: 1.2rem;
@@ -98,7 +87,7 @@
       text-transform: uppercase;
     }
 
-    /* --- NAVBAR --- */
+    /* NAVBAR */
     .navbar {
       background-color: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(10px);
@@ -111,7 +100,6 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .navbar-brand {
       color: white;
       text-decoration: none;
@@ -120,19 +108,16 @@
       align-items: center;
       font-weight: bold;
     }
-
     .navbar-brand img {
       height: 40px;
       margin-right: 15px;
       mix-blend-mode: screen;
     }
-
     .nav-actions {
       display: flex;
       gap: 10px;
       align-items: center;
     }
-
     .nav-link {
       color: var(--text-secondary);
       text-decoration: none;
@@ -144,13 +129,12 @@
       transition: color 0.2s ease, background-color 0.2s ease;
       cursor: pointer;
     }
-
     .nav-link:hover {
       color: var(--text-primary);
       background-color: rgba(255,255,255,0.05);
     }
 
-    /* --- BUTTONS --- */
+    /* BUTTONS */
     .btn {
       background-color: var(--accent-red);
       color: var(--text-primary);
@@ -169,41 +153,35 @@
       box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
       gap: 8px;
     }
-
     .btn:hover {
       background-color: var(--accent-red-hover);
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(229, 9, 20, 0.6);
     }
-
     .btn:disabled {
       background-color: var(--secondary-dark);
       cursor: not-allowed;
       transform: none;
       box-shadow: none;
     }
-
     .btn-secondary {
       background-color: var(--secondary-dark);
       box-shadow: none;
     }
-
     .btn-secondary:hover {
       background-color: #3a3a3a;
       box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     }
-
     .btn-ghost {
       background: transparent;
       border: 1px solid var(--accent-red);
       box-shadow: none;
     }
-
     .btn-ghost:hover {
       background-color: rgba(229,9,20,0.15);
     }
 
-    /* --- LAYOUT CONTAINERS --- */
+    /* CONTAINER */
     .container {
       background-color: rgba(26,26,26,0.95);
       padding: 40px;
@@ -216,7 +194,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .container::before {
       content: "";
       position: absolute;
@@ -225,7 +202,6 @@
       opacity: 0.6;
       pointer-events: none;
     }
-
     h2 {
       text-align: center;
       font-size: 2.3rem;
@@ -236,7 +212,7 @@
       text-transform: uppercase;
     }
 
-    /* --- HERO SECTION --- */
+    /* HERO */
     .hero {
       background: transparent;
       text-align: center;
@@ -244,7 +220,6 @@
       position: relative;
       flex-shrink: 0;
     }
-
     .hero-content {
       position: relative;
       z-index: 2;
@@ -253,7 +228,6 @@
       padding: 20px;
       border-radius: 10px;
     }
-
     .hero h1 {
       font-size: 3.3rem;
       font-weight: 900;
@@ -263,11 +237,9 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-
     .hero h1 span {
       color: var(--accent-red);
     }
-
     .hero p {
       font-size: 1.2rem;
       color: var(--text-secondary);
@@ -277,7 +249,6 @@
       margin-left: auto;
       margin-right: auto;
     }
-
     .hero-actions {
       display: flex;
       justify-content: center;
@@ -285,19 +256,17 @@
       flex-wrap: wrap;
     }
 
-    /* --- FEATURES --- */
+    /* FEATURES */
     .features {
       max-width: 1200px;
       text-align: center;
     }
-
     .feature-cards {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
     }
-
     .card {
       background: var(--primary-dark);
       border: 1px solid var(--secondary-dark);
@@ -310,7 +279,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .card::before {
       content: "";
       position: absolute;
@@ -320,18 +288,15 @@
       transition: opacity 0.3s ease;
       pointer-events: none;
     }
-
     .card:hover {
       transform: translateY(-6px) scale(1.02);
       border-color: var(--accent-red);
       box-shadow: 0 14px 35px rgba(229, 9, 20, 0.3);
       background: radial-gradient(circle at top, rgba(229,9,20,0.15), var(--primary-dark) 60%);
     }
-
     .card:hover::before {
       opacity: 1;
     }
-
     .card h3 {
       color: var(--accent-red);
       font-size: 1.3rem;
@@ -340,19 +305,17 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
-
     .card p {
       color: var(--text-secondary);
       font-size: 0.95rem;
     }
 
-    /* --- DOCTORS --- */
+    /* DOCTORS */
     .doctors {
       background-color: transparent;
       padding: 60px 20px;
       text-align: center;
     }
-
     .doctor-list {
       display: flex;
       justify-content: center;
@@ -361,7 +324,6 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-
     .doctor-card {
       background-color: rgba(26,26,26,0.95);
       color: var(--text-primary);
@@ -378,7 +340,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .doctor-card::after {
       content: "";
       position: absolute;
@@ -387,17 +348,14 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-
     .doctor-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 14px 30px rgba(229, 9, 20, 0.3);
       border-color: var(--accent-red);
     }
-
     .doctor-card:hover::after {
       opacity: 1;
     }
-
     .doctor-image-container {
       width: 130px;
       height: 130px;
@@ -406,7 +364,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .doctor-card img {
       width: 100%;
       height: 100%;
@@ -414,7 +371,6 @@
       object-fit: cover;
       border: 3px solid var(--accent-red);
     }
-
     .doctor-img-fallback {
       width: 130px;
       height: 130px;
@@ -426,41 +382,21 @@
       justify-content: center;
       font-size: 3rem;
     }
-
     .doctor-card h4 {
       font-size: 1.2rem;
       margin-bottom: 6px;
     }
-
     .doctor-card p {
       color: var(--text-secondary);
       font-size: 0.95rem;
-      margin-bottom: 10px;
     }
 
-    .doctor-meta {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-bottom: 10px;
-      opacity: 0.85;
-    }
-
-    .doctor-card .btn-secondary {
-      font-size: 0.75rem;
-      padding: 8px 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: 6px;
-    }
-
-    /* --- FORM & MESSAGES --- */
+    /* FORMS & MESSAGES */
     .cta { text-align: center; }
-
     .form-group {
       margin-bottom: 18px;
       text-align: left;
     }
-
     label {
       display: block;
       margin-bottom: 6px;
@@ -468,7 +404,6 @@
       font-weight: bold;
       font-size: 0.9rem;
     }
-
     input[type="text"],
     input[type="email"],
     input[type="date"],
@@ -485,15 +420,10 @@
       color: var(--text-primary);
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-
-    /* keep date/time icon visible on dark backgrounds */
     input[type="date"]::-webkit-calendar-picker-indicator,
     input[type="time"]::-webkit-calendar-picker-indicator {
-      filter: invert(1) brightness(1.6);
-      opacity: 0.9;
-      cursor: pointer;
+      filter: invert(1);
     }
-
     input:focus,
     select:focus,
     textarea:focus {
@@ -501,14 +431,12 @@
       box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.25);
       outline: none;
     }
-
     .error-message {
       color: #ff6b6b;
       font-size: 0.8rem;
       margin-top: 3px;
       display: block;
     }
-
     .message {
       margin-top: 15px;
       padding: 12px;
@@ -517,24 +445,21 @@
       font-size: 0.9rem;
       font-weight: 500;
     }
-
     .message.success {
       background-color: #198754;
       color: #fff;
     }
-
     .message.error {
       background-color: #dc3545;
       color: #fff;
     }
-
     .message.info {
-      background-color: rgba(0,123,255,0.08);
+      background-color: rgba(0,123,255,0.15);
       color: var(--text-primary);
       border: 1px solid var(--accent-blue);
     }
 
-    /* --- FOOTER --- */
+    /* FOOTER */
     .footer {
       background: rgba(26,26,26,0.98);
       color: var(--text-secondary);
@@ -543,14 +468,10 @@
       margin-top: auto;
       border-top: 1px solid var(--secondary-dark);
     }
-
     .footer-content {
-      position: relative;
-      z-index: 1;
       max-width: 1000px;
       margin: 0 auto;
     }
-
     .social-icons { margin-top: 15px; }
     .social-icons a {
       display: inline-block;
@@ -567,7 +488,6 @@
       opacity: 1;
       filter: grayscale(0) invert(0) drop-shadow(0 0 5px var(--accent-red));
     }
-
     .app-links { margin: 18px 0; }
     .app-links a img {
       height: 36px;
@@ -579,13 +499,11 @@
       opacity: 1;
       filter: drop-shadow(0 0 5px var(--accent-red));
     }
-
     .footer-meta {
       font-size: 0.8rem;
       opacity: 0.8;
       margin-top: 8px;
     }
-
     .admin-link {
       font-size: 0.8rem;
       cursor: pointer;
@@ -593,19 +511,18 @@
       text-decoration: underline;
     }
 
-    /* --- SCROLL ANIMATION --- */
+    /* SCROLL ANIM */
     .js-scroll {
       opacity: 0;
       transform: translateY(40px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-
     .js-scroll.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* --- CHAT WIDGET --- */
+    /* CHAT WIDGET */
     .chat-widget {
       position: fixed;
       bottom: 20px;
@@ -725,7 +642,7 @@
       font-size: 0.8rem;
     }
 
-    /* --- MODALS (AUTH + DOCTOR) --- */
+    /* MODAL */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -735,7 +652,6 @@
       justify-content: center;
       z-index: 1500;
     }
-
     .modal {
       background: rgba(26,26,26,0.98);
       border-radius: 14px;
@@ -747,7 +663,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .modal::before {
       content: "";
       position: absolute;
@@ -756,32 +671,27 @@
       opacity: 0.7;
       pointer-events: none;
     }
-
     .modal-header {
       position: relative;
       z-index: 1;
       margin-bottom: 12px;
     }
-
     .modal-header h3 {
       margin: 0;
       font-size: 1.3rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
     }
-
     .modal-sub {
       font-size: 0.85rem;
       color: var(--text-secondary);
       margin-bottom: 14px;
     }
-
     .modal-tabs {
       display: flex;
       gap: 6px;
       margin-bottom: 12px;
     }
-
     .tab-btn {
       flex: 1;
       padding: 8px 10px;
@@ -793,14 +703,12 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-
     .tab-btn.active {
       border-color: var(--accent-red);
       background: radial-gradient(circle at top, rgba(229,9,20,0.25), rgba(0,0,0,0.9));
       color: var(--text-primary);
       box-shadow: 0 0 12px rgba(229,9,20,0.5);
     }
-
     .modal-close {
       position: absolute;
       right: 12px;
@@ -812,12 +720,10 @@
       cursor: pointer;
       z-index: 2;
     }
-
     .modal-body {
       position: relative;
       z-index: 1;
     }
-
     .otp-step {
       font-size: 0.8rem;
       color: var(--accent-yellow);
@@ -825,30 +731,25 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
-
-    /* Doctor modal extras */
-    .doc-meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 8px 0 14px;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
+    .credentials-box {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(0,0,0,0.5);
+      border: 1px dashed var(--accent-yellow);
+      font-size: 0.85rem;
+    }
+    .credentials-box code {
+      display: block;
+      margin-top: 4px;
+      font-family: "Fira Code", monospace;
     }
 
-    .doc-chip {
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid var(--secondary-dark);
-      background: rgba(0,0,0,0.6);
-    }
-
-    /* --- DASHBOARDS --- */
+    /* DASHBOARD */
     .dashboard {
       display: none;
       margin-top: 20px;
     }
-
     .dash-header {
       display: flex;
       justify-content: space-between;
@@ -857,25 +758,21 @@
       margin-bottom: 16px;
       flex-wrap: wrap;
     }
-
     .dash-title {
       font-size: 1.1rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
-
     .dash-tagline {
       font-size: 0.85rem;
       color: var(--text-secondary);
     }
-
     .stats-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 16px;
     }
-
     .stat-box {
       flex: 1 1 120px;
       background: rgba(0,0,0,0.5);
@@ -884,7 +781,6 @@
       border: 1px solid var(--secondary-dark);
       font-size: 0.85rem;
     }
-
     .stat-label {
       color: var(--text-secondary);
       font-size: 0.75rem;
@@ -892,12 +788,10 @@
       letter-spacing: 0.08em;
       margin-bottom: 4px;
     }
-
     .stat-value {
       font-size: 1rem;
       font-weight: bold;
     }
-
     .appointments-table {
       width: 100%;
       border-spacing: 0;
@@ -905,21 +799,18 @@
       margin-top: 8px;
       font-size: 0.85rem;
     }
-
     .appointments-table th,
     .appointments-table td {
       padding: 8px 6px;
       border-bottom: 1px solid var(--secondary-dark);
       text-align: left;
     }
-
     .appointments-table th {
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-secondary);
     }
-
     .status-pill {
       display: inline-block;
       padding: 3px 8px;
@@ -927,38 +818,44 @@
       font-size: 0.75rem;
       font-weight: 600;
     }
+    .status-pending {
+      background: rgba(255,193,7,0.1);
+      color: var(--accent-yellow);
+      border: 1px solid rgba(255,193,7,0.4);
+    }
+    .status-confirmed {
+      background: rgba(40,167,69,0.12);
+      color: var(--accent-green);
+      border: 1px solid rgba(40,167,69,0.4);
+    }
+    .status-rejected {
+      background: rgba(220,53,69,0.12);
+      color: #dc3545;
+      border: 1px solid rgba(220,53,69,0.4);
+    }
 
-    .status-pending { background: rgba(255,193,7,0.1); color: var(--accent-yellow); border: 1px solid rgba(255,193,7,0.4); }
-    .status-confirmed { background: rgba(40,167,69,0.12); color: var(--accent-green); border: 1px solid rgba(40,167,69,0.4); }
-    .status-rejected { background: rgba(220,53,69,0.12); color: #dc3545; border: 1px solid rgba(220,53,69,0.4); }
-
-    /* --- RESPONSIVE --- */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero {
         padding: 120px 16px 80px;
       }
-
       .hero h1 {
         font-size: 2.3rem;
       }
-
       .container {
         padding: 24px 16px;
         margin: 24px auto;
         width: 94%;
       }
-
       .chat-container {
         width: 300px;
         height: 420px;
       }
-
       .dash-header {
         flex-direction: column;
         align-items: flex-start;
       }
     }
-
     @media (max-width: 480px) {
       .chat-container {
         width: 270px;
@@ -968,7 +865,7 @@
   </style>
 </head>
 <body>
-  <!-- LOADING SCREEN -->
+  <!-- LOADING -->
   <div id="loadingScreen">
     <img src="logo.webp" alt="Trauma Team Logo" class="loading-logo" onerror="this.style.display='none';">
     <div class="spinner"></div>
@@ -989,7 +886,7 @@
     </nav>
   </header>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <main>
     <!-- HERO -->
     <section class="hero">
@@ -1032,40 +929,32 @@
       <div class="doctor-list">
         <div class="doctor-card">
           <div class="doctor-image-container">
-            <img src="doctor1.jpg" alt="Dr. Sharma" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'doctor-img-fallback\'>👨‍⚕️</div>';"></div>
+            <img src="doctor1.jpg" alt="Dr. Sharma"
+                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👨‍⚕️</div>';">
+          </div>
           <h4>Dr. R. Sharma</h4>
           <p>Chief Medical Officer</p>
-          <div class="doctor-meta">Tier-1 Trauma Clearance · 15+ yrs experience</div>
-          <button class="btn btn-secondary doctor-report-btn" data-doctor="sharma">
-            Elite Neural Report
-          </button>
         </div>
-
         <div class="doctor-card">
           <div class="doctor-image-container">
-            <img src="doctor2.png" alt="Dr. Gupta" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'doctor-img-fallback\'>👩‍⚕️</div>';"></div>
+            <img src="doctor2.png" alt="Dr. Gupta"
+                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👩‍⚕️</div>';">
+          </div>
           <h4>Dr. M. Gupta</h4>
           <p>Orthopedic & Plastic Surgeon</p>
-          <div class="doctor-meta">Complex fractures · Reconstruction · Scar-minimal ops</div>
-          <button class="btn btn-secondary doctor-report-btn" data-doctor="gupta">
-            Elite Neural Report
-          </button>
         </div>
-
         <div class="doctor-card">
           <div class="doctor-image-container">
-            <img src="doctor3.png" alt="Dr. Jyoti" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'doctor-img-fallback\'>👨‍⚕️</div>';"></div>
+            <img src="doctor3.png" alt="Dr. Jyoti"
+                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👨‍⚕️</div>';">
+          </div>
           <h4>Dr. Jyoti</h4>
           <p>Chief Neurosurgeon</p>
-          <div class="doctor-meta">High-velocity trauma · Micro-neurosurgery · ICU Neuro-Lead</div>
-          <button class="btn btn-secondary doctor-report-btn" data-doctor="jyoti">
-            Elite Neural Report
-          </button>
         </div>
       </div>
     </section>
 
-    <!-- BOOKING SECTION (visible only when logged in) -->
+    <!-- BOOKING (only logged in) -->
     <section id="book" class="container cta js-scroll" style="display:none;">
       <h2>Schedule Consultation</h2>
       <p class="dash-tagline">Verified users only. Your identity and data remain secured.</p>
@@ -1196,7 +1085,7 @@
           </tr>
         </thead>
         <tbody id="adminAppointmentsBody">
-          <tr><td colspan="5" style="text-align:center; color:var(--text-secondary);">No data (connect backend).</td></tr>
+          <tr><td colspan="5" style="text-align:center; color:var(--text-secondary);">No appointments found.</td></tr>
         </tbody>
       </table>
     </section>
@@ -1228,7 +1117,7 @@
     </div>
   </footer>
 
-  <!-- EMERGENCY CHAT WIDGET -->
+  <!-- CHAT WIDGET -->
   <div class="chat-widget">
     <button class="chat-button" id="chatToggle">💬</button>
     <div class="chat-container" id="chatContainer">
@@ -1253,19 +1142,18 @@
     </div>
   </div>
 
-  <!-- AUTH MODAL (OTP-only + admin) -->
+  <!-- AUTH MODAL -->
   <div class="modal-backdrop" id="authModalBackdrop">
     <div class="modal">
       <button class="modal-close" id="authCloseBtn">×</button>
       <div class="modal-header">
         <h3>Secure Login</h3>
-        <div class="modal-sub">OTP-based identity verification (no password flow for users)</div>
+        <div class="modal-sub">OTP-based identity verification + generated credentials</div>
       </div>
 
       <div class="modal-tabs">
         <button class="tab-btn active" data-tab="otp" id="tabOtp">Login / Register with OTP</button>
-        <!-- Keep creds tab for admin/login with credentials if needed (not for users) -->
-        <button class="tab-btn" data-tab="creds" id="tabCreds">Admin / Creds</button>
+        <button class="tab-btn" data-tab="creds" id="tabCreds">Login with ID + Password</button>
       </div>
 
       <div class="modal-body">
@@ -1280,163 +1168,106 @@
 
           <div class="form-group" id="otpInputGroup" style="display:none;">
             <label for="otpCode">OTP Code</label>
-            <input type="text" id="otpCode" placeholder="Enter 4-digit OTP">
+            <input type="text" id="otpCode" placeholder="Enter 6-digit OTP">
           </div>
 
           <button class="btn" id="otpActionBtn">Send OTP</button>
 
           <div id="otpMessage" class="message info" style="display:none;"></div>
+
+          <div class="credentials-box" id="credentialsBox" style="display:none;">
+            <strong>Your Trauma Team Login Credentials</strong>
+            <p>We also email these to you. Keep them safe.</p>
+            <code id="credUserId">User ID: TTI-XXXX</code>
+            <code id="credPassword">Password: ********</code>
+          </div>
         </div>
 
-        <!-- CREDENTIAL / ADMIN PANE (admin only) -->
+        <!-- CREDENTIAL LOGIN -->
         <div id="credsPane" style="display:none; margin-top:4px;">
-          <div class="otp-step">Admin / Credentials</div>
+          <div class="otp-step">Existing Account · Login with generated credentials</div>
 
           <div class="form-group">
-            <label for="loginUserId">Admin Username</label>
-            <input type="text" id="loginUserId" placeholder="admin">
+            <label for="loginUserId">User ID</label>
+            <input type="text" id="loginUserId" placeholder="e.g. TTI-2025-ABCD">
           </div>
           <div class="form-group">
-            <label for="loginPassword">Admin Password</label>
-            <input type="password" id="loginPassword" placeholder="••••••••">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="Enter your password">
           </div>
-          <button class="btn" id="loginCredsBtn">Login as Admin</button>
+          <button class="btn" id="loginCredsBtn">Login</button>
           <div id="credsMessage" class="message info" style="display:none;"></div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- DOCTOR DETAIL MODAL -->
-  <div class="modal-backdrop" id="doctorModalBackdrop">
-    <div class="modal">
-      <button class="modal-close" id="doctorModalClose">×</button>
-      <div class="modal-header">
-        <h3 id="docModalName">DOCTOR</h3>
-        <div class="modal-sub" id="docModalTitle">Elite Trauma Clearance</div>
-      </div>
-      <div class="modal-body">
-        <div class="doc-meta-row">
-          <span class="doc-chip" id="docModalTier">Tier-1 Neural Response</span>
-          <span class="doc-chip" id="docModalCases">+ Cases</span>
-          <span class="doc-chip" id="docModalWindow">Active window: 24/7</span>
-        </div>
-        <p id="docModalBio" style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:14px;">
-          Loading neural dossier...
-        </p>
-        <div class="stats-row">
-          <div class="stat-box">
-            <div class="stat-label">Avg. Response</div>
-            <div class="stat-value" id="docModalResponse">–</div>
+        <!-- ADMIN LOGIN -->
+        <div id="adminLoginPane" style="display:none; margin-top:12px;">
+          <div class="otp-step">Admin Access · Restricted</div>
+          <div class="form-group">
+            <label for="adminUser">Admin Username</label>
+            <input type="text" id="adminUser" placeholder="admin">
           </div>
-          <div class="stat-box">
-            <div class="stat-label">Critical Ops</div>
-            <div class="stat-value" id="docModalOps">–</div>
+          <div class="form-group">
+            <label for="adminPass">Admin Password</label>
+            <input type="password" id="adminPass" placeholder="••••••••">
           </div>
-          <div class="stat-box">
-            <div class="stat-label">Clearance</div>
-            <div class="stat-value" id="docModalClearance">–</div>
-          </div>
-        </div>
-        <div style="margin-top:14px; text-align:right;">
-          <button class="btn btn-secondary" id="docModalBookBtn">Book with this Doctor</button>
+          <button class="btn" id="adminLoginBtn">Login as Admin</button>
+          <div id="adminLoginMessage" class="message info" style="display:none;"></div>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    // ===== CONFIG =====
-    // point to your backend base
+    // CONFIG - IMPORTANT: no /api here
     const API_BASE_URL = "https://traumateam-backend.onrender.com";
 
-    let authToken = null; // not used for OTP-only user flow
+    let authToken = null;
     let currentUser = null;
     let isAdmin = false;
 
-    // Doctor profiles for modal
-    const DOCTOR_PROFILES = {
-      sharma: {
-        name: "Dr. R. Sharma",
-        title: "Chief Medical Officer",
-        tier: "Tier-1 Trauma Command",
-        cases: "5,000+ cases",
-        window: "Available: 06:00 – 22:00 IST",
-        response: "< 8 min (urban)",
-        ops: "Polytrauma / ICU",
-        clearance: "Level-Ω",
-        bio: "Leads cross-specialty trauma teams for high-impact incidents. Coordinates ICU, surgical, and field units with military-grade triage protocols."
-      },
-      gupta: {
-        name: "Dr. M. Gupta",
-        title: "Orthopedic & Plastic Surgeon",
-        tier: "Tier-2 Reconstruction",
-        cases: "2,700+ cases",
-        window: "Available: 09:00 – 19:00 IST",
-        response: "< 12 min (scheduled)",
-        ops: "Ortho + Reconstruction",
-        clearance: "Level-Σ",
-        bio: "Specializes in complex fractures, joint restoration and plastic reconstruction with scar-minimal techniques for post-trauma patients."
-      },
-      jyoti: {
-        name: "Dr. Jyoti",
-        title: "Chief Neurosurgeon",
-        tier: "Tier-0 Neural Command",
-        cases: "3,200+ neuro cases",
-        window: "Neuro window: 24/7 on-call",
-        response: "< 6 min (neuro-alert)",
-        ops: "Cranial / Spine / ICU Neuro",
-        clearance: "Level-Ω / Black",
-        bio: "Frontline neurosurgeon for high-velocity trauma, intracranial bleeds and complex spine injuries. Leads neural-critical decisions for ICU and OR."
-      }
-    };
-
-    // ===== LOW-LEVEL FETCH HELPER =====
+    // LOW LEVEL REQUEST
     async function apiRequest(path, { method = "GET", body, headers = {} } = {}, requireAuth = false) {
       const finalHeaders = {
         "Content-Type": "application/json",
         ...headers,
       };
-
-      // admin login might not require token; appointment endpoints in current backend do not require JWT
       if (requireAuth && authToken) {
         finalHeaders["Authorization"] = "Bearer " + authToken;
       }
 
-      const res = await fetch(API_BASE_URL + path, {
-        method,
-        headers: finalHeaders,
-        body,
-      });
-
-      let data = null;
       try {
-        data = await res.json();
-      } catch (_) {
-        // ignore if no JSON body
-      }
+        const res = await fetch(API_BASE_URL + path, {
+          method,
+          headers: finalHeaders,
+          body,
+        });
 
-      if (!res.ok) {
-        const msg =
-          (data && (data.detail || data.message)) ||
-          `Request failed (${res.status})`;
-        throw new Error(msg);
-      }
+        let data = null;
+        try {
+          data = await res.json();
+        } catch (_) {}
 
-      return data;
+        if (!res.ok) {
+          const msg = (data && (data.detail || data.message)) || `Request failed (${res.status})`;
+          throw new Error(msg);
+        }
+        return data;
+      } catch (err) {
+        console.error("API error:", path, err);
+        throw err;
+      }
     }
 
-    // ===== API WRAPPER (aligned to backend files) =====
+    // HIGH-LEVEL API
     const api = {
-      // NOTE: backend otp router is mounted at /otp with /request and /verify.
-      // See otp.py in your backend. :contentReference[oaicite:4]{index=4}
       async requestOtp(email) {
         try {
-          const data = await apiRequest("/otp/request", {
-            method: "POST",
-            body: JSON.stringify({ email })
-          }, false);
-          return { success: true, message: data.message || "OTP sent" };
+          const data = await apiRequest(
+            "/auth/request-otp",
+            { method: "POST", body: JSON.stringify({ email }) },
+            false
+          );
+          return { success: true, message: data.message || "OTP sent to " + email };
         } catch (err) {
           return { success: false, message: err.message };
         }
@@ -1444,41 +1275,44 @@
 
       async verifyOtp(email, otp) {
         try {
-          const data = await apiRequest("/otp/verify", {
-            method: "POST",
-            body: JSON.stringify({ email, otp })
-          }, false);
-
-          // backend returns {"verified": true} or {"verified": false}
-          if (data && data.verified) {
-            // create a minimal user object for frontend session
-            const user = {
-              email,
-              // simple generated user id for UI (no backend token available in current OTP flow)
-              user_id: "TTI-" + String(Date.now()).slice(-6),
-              name: email.split("@")[0]
-            };
-            return { success: true, user };
-          } else {
-            return { success: false, message: "Invalid OTP" };
-          }
+          const data = await apiRequest(
+            "/auth/verify-otp",
+            { method: "POST", body: JSON.stringify({ email, otp }) },
+            false
+          );
+          const user = data.user || {};
+          return {
+            success: true,
+            token: data.access_token,
+            user: {
+              email: user.email || email,
+              name: user.full_name || user.name || email.split("@")[0],
+              user_id: user.user_id || user.id || "TTI-" + String(Date.now()).slice(-6),
+            },
+            temp_password: data.password || data.temp_password || "Check your email",
+          };
         } catch (err) {
           return { success: false, message: err.message };
         }
       },
 
-      // admin login uses /auth/login which in backend expects username/password and returns login flag (keep for admin console). :contentReference[oaicite:5]{index=5}
-      async adminLogin(user, pass) {
+      async loginWithCreds(userId, password) {
         try {
-          const data = await apiRequest("/auth/login", {
-            method: "POST",
-            body: JSON.stringify({ username: user, password: pass })
-          }, false);
-          if (data && data.login) {
-            // backend returns {"login": True, "user_id": id}
-            return { success: true, admin_id: data.user_id || "ADMIN" };
-          }
-          return { success: false, message: "Invalid admin credentials" };
+          const data = await apiRequest(
+            "/auth/login",
+            { method: "POST", body: JSON.stringify({ user_id: userId, password }) },
+            false
+          );
+          const user = data.user || {};
+          return {
+            success: true,
+            token: data.access_token,
+            user: {
+              email: user.email || (userId + "@example.com"),
+              name: user.full_name || user.name || user.user_id || userId,
+              user_id: user.user_id || userId,
+            },
+          };
         } catch (err) {
           return { success: false, message: err.message };
         }
@@ -1486,15 +1320,13 @@
 
       async getMyAppointments() {
         try {
-          const data = await apiRequest("/appointments/me", { method: "GET" }, false);
-          // if backend returns list, map to consistent shape
+          const data = await apiRequest("/appointments/me", { method: "GET" }, true);
           return (data || []).map((a) => ({
             id: a.id,
             doctor: a.doctor_name || a.doctor || "Unknown",
             date: a.appointment_date || a.date,
             time: a.appointment_time || a.time,
             status: a.status || "pending",
-            patient: a.patient_name || a.patient || ""
           }));
         } catch (err) {
           console.error("getMyAppointments error:", err);
@@ -1504,18 +1336,35 @@
 
       async createAppointment(payload) {
         try {
-          await apiRequest("/appointments", {
-            method: "POST",
-            body: JSON.stringify({
-              patient_name: payload.patient_name,
-              email: payload.email,
-              doctor_name: payload.doctor,
-              appointment_date: payload.appointment_date,
-              appointment_time: payload.appointment_time,
-              message: payload.message,
-            })
-          }, false);
+          await apiRequest(
+            "/appointments",
+            {
+              method: "POST",
+              body: JSON.stringify({
+                patient_name: payload.patient_name,
+                email: payload.email,
+                doctor_name: payload.doctor,
+                appointment_date: payload.appointment_date,
+                appointment_time: payload.appointment_time,
+                message: payload.message,
+              }),
+            },
+            true
+          );
           return { success: true };
+        } catch (err) {
+          return { success: false, message: err.message };
+        }
+      },
+
+      async adminLogin(user, pass) {
+        try {
+          const data = await apiRequest(
+            "/admin/login",
+            { method: "POST", body: JSON.stringify({ username: user, password: pass }) },
+            false
+          );
+          return { success: true, token: data.access_token };
         } catch (err) {
           return { success: false, message: err.message };
         }
@@ -1523,7 +1372,7 @@
 
       async adminGetAppointments() {
         try {
-          const data = await apiRequest("/admin/appointments", { method: "GET" }, false);
+          const data = await apiRequest("/admin/appointments", { method: "GET" }, true);
           return (data || []).map((a) => ({
             id: a.id,
             patient: a.patient_name || a.patient || "Unknown",
@@ -1539,17 +1388,15 @@
       },
     };
 
-    // ===== GENERIC HELPERS =====
+    // GENERIC HELPERS
     function showElement(el) { if (el) el.style.display = "block"; }
     function hideElement(el) { if (el) el.style.display = "none"; }
-
     function setMessage(el, text, type = "info") {
       if (!el) return;
       el.textContent = text;
       el.className = "message " + type;
       el.style.display = text ? "block" : "none";
     }
-
     function renderStatusPill(status) {
       let cls = "status-pending";
       let text = "Pending";
@@ -1558,16 +1405,16 @@
       return `<span class="status-pill ${cls}">${text}</span>`;
     }
 
-    // ===== LOADING SCREEN =====
+    // LOADING
     window.addEventListener("load", () => {
       const loading = document.getElementById("loadingScreen");
       setTimeout(() => {
         loading.style.opacity = "0";
         setTimeout(() => (loading.style.display = "none"), 500);
-      }, 900);
+      }, 1200);
     });
 
-    // ===== SCROLL ANIMATIONS + MAIN INIT =====
+    // MAIN INIT
     document.addEventListener("DOMContentLoaded", () => {
       const scrollElements = document.querySelectorAll(".js-scroll");
       const heroContent = document.querySelector(".hero-content");
@@ -1590,10 +1437,9 @@
       initAuthModal();
       initDashboard();
       initBookingForm();
-      initDoctorModal();
     });
 
-    // ===== CHAT WIDGET =====
+    // CHAT
     function initChat() {
       const chatToggle = document.getElementById("chatToggle");
       const chatContainer = document.getElementById("chatContainer");
@@ -1659,7 +1505,7 @@
       });
     }
 
-    // ===== AUTH MODAL (OTP-only for users) =====
+    // AUTH MODAL
     function initAuthModal() {
       const backdrop = document.getElementById("authModalBackdrop");
       const navLogin = document.getElementById("navLogin");
@@ -1671,6 +1517,7 @@
       const tabCreds = document.getElementById("tabCreds");
       const otpPane = document.getElementById("otpPane");
       const credsPane = document.getElementById("credsPane");
+      const adminPane = document.getElementById("adminLoginPane");
 
       const otpEmail = document.getElementById("otpEmail");
       const otpCode = document.getElementById("otpCode");
@@ -1678,24 +1525,44 @@
       const otpStepLabel = document.getElementById("otpStepLabel");
       const otpActionBtn = document.getElementById("otpActionBtn");
       const otpMessage = document.getElementById("otpMessage");
+      const credentialsBox = document.getElementById("credentialsBox");
+      const credUserId = document.getElementById("credUserId");
+      const credPassword = document.getElementById("credPassword");
 
-      const loginUserId = document.getElementById("loginUserId"); // admin username input
-      const loginPassword = document.getElementById("loginPassword"); // admin pass input
+      const loginUserId = document.getElementById("loginUserId");
+      const loginPassword = document.getElementById("loginPassword");
       const loginCredsBtn = document.getElementById("loginCredsBtn");
       const credsMessage = document.getElementById("credsMessage");
 
+      const adminUser = document.getElementById("adminUser");
+      const adminPass = document.getElementById("adminPass");
+      const adminLoginBtn = document.getElementById("adminLoginBtn");
+      const adminLoginMessage = document.getElementById("adminLoginMessage");
+
       let otpStep = 1;
 
-      function openModal() {
+      function openModal(mode = "user") {
         showElement(backdrop);
-        otpInputGroup.style.display = "none";
+        credentialsBox.style.display = "none";
         setMessage(otpMessage, "", "info");
         setMessage(credsMessage, "", "info");
-        setActiveTab("otp");
-        otpStep = 1;
-        otpActionBtn.textContent = "Send OTP";
-        otpEmail.value = "";
-        otpCode.value = "";
+        setMessage(adminLoginMessage, "", "info");
+
+        if (mode === "user") {
+          otpPane.style.display = "block";
+          credsPane.style.display = "block";
+          adminPane.style.display = "none";
+          tabOtp.style.display = "inline-block";
+          tabCreds.style.display = "inline-block";
+          setActiveTab("otp");
+          resetOtpFlow();
+        } else {
+          otpPane.style.display = "none";
+          credsPane.style.display = "none";
+          adminPane.style.display = "block";
+          tabOtp.style.display = "none";
+          tabCreds.style.display = "none";
+        }
       }
 
       function closeModal() {
@@ -1716,99 +1583,139 @@
         }
       }
 
-      // OTP button action
+      function resetOtpFlow() {
+        otpStep = 1;
+        otpInputGroup.style.display = "none";
+        otpActionBtn.textContent = "Send OTP";
+        otpActionBtn.disabled = false;
+        otpStepLabel.textContent = "Step 1 · Enter email to receive OTP";
+        otpEmail.value = "";
+        otpCode.value = "";
+      }
+
+      // OTP button
       otpActionBtn.addEventListener("click", async () => {
-        const email = (otpEmail.value || "").trim();
+        const email = otpEmail.value.trim();
         if (!email) {
           setMessage(otpMessage, "Please enter your email first.", "error");
           return;
         }
-
         if (otpStep === 1) {
           otpActionBtn.textContent = "Sending...";
           otpActionBtn.disabled = true;
           const res = await api.requestOtp(email);
           otpActionBtn.disabled = false;
+          otpActionBtn.textContent = "Verify OTP";
           if (res.success) {
             otpStep = 2;
             otpInputGroup.style.display = "block";
             otpStepLabel.textContent = "Step 2 · Enter the OTP we emailed you";
-            setMessage(otpMessage, res.message || "OTP sent", "success");
-            otpActionBtn.textContent = "Verify OTP";
+            setMessage(otpMessage, res.message, "success");
           } else {
             setMessage(otpMessage, res.message || "Failed to send OTP", "error");
-            otpActionBtn.textContent = "Send OTP";
           }
         } else if (otpStep === 2) {
-          const otp = (otpCode.value || "").trim();
+          const otp = otpCode.value.trim();
           if (!otp) {
             setMessage(otpMessage, "Please enter the OTP.", "error");
             return;
           }
           otpActionBtn.textContent = "Verifying...";
           otpActionBtn.disabled = true;
-          const res = await api.verifyOtp(otpEmail.value.trim(), otp);
-          otpActionBtn.disabled = false;
+          const res = await api.verifyOtp(email, otp);
           if (res.success) {
-            // mark user logged in (no token in this OTP flow)
+            authToken = res.token;
             currentUser = res.user;
             isAdmin = false;
+
+            credentialsBox.style.display = "block";
+            credUserId.textContent = "User ID: " + res.user.user_id;
+            credPassword.textContent = "Password: " + res.temp_password;
+
+            setMessage(
+              otpMessage,
+              "OTP verified. Credentials generated & emailed. You are now logged in.",
+              "success"
+            );
+
             persistAuth();
-            setMessage(otpMessage, "OTP verified. You are now logged in.", "success");
             updateUIAfterLogin();
-            setTimeout(closeModal, 1100);
+            setTimeout(closeModal, 1500);
           } else {
-            setMessage(otpMessage, res.message || "Invalid OTP", "error");
             otpActionBtn.textContent = "Verify OTP";
+            otpActionBtn.disabled = false;
+            setMessage(otpMessage, res.message || "Invalid OTP", "error");
           }
-          otpStep = 1;
-          otpInputGroup.style.display = "none";
-          otpActionBtn.textContent = "Send OTP";
         }
       });
 
-      // Admin (credential) login - kept for admin console only
+      // Credential login
       loginCredsBtn.addEventListener("click", async () => {
-        const u = (loginUserId.value || "").trim();
-        const p = (loginPassword.value || "").trim();
-        if (!u || !p) {
-          setMessage(credsMessage, "Enter admin username and password.", "error");
+        const id = loginUserId.value.trim();
+        const pwd = loginPassword.value.trim();
+        if (!id || !pwd) {
+          setMessage(credsMessage, "Enter both User ID and Password.", "error");
           return;
         }
-        loginCredsBtn.textContent = "Verifying...";
+        loginCredsBtn.textContent = "Logging in...";
         loginCredsBtn.disabled = true;
-        const res = await api.adminLogin(u, p);
+        const res = await api.loginWithCreds(id, pwd);
         loginCredsBtn.disabled = false;
-        loginCredsBtn.textContent = "Login as Admin";
+        loginCredsBtn.textContent = "Login";
         if (res.success) {
-          isAdmin = true;
-          authToken = null; // backend admin uses simple login flag; no token returned in current backend
-          currentUser = { name: "Admin", user_id: res.admin_id || "ADMIN" };
+          authToken = res.token;
+          currentUser = res.user;
+          isAdmin = false;
+          setMessage(credsMessage, "Login successful!", "success");
           persistAuth();
-          setMessage(credsMessage, "Admin login successful.", "success");
           updateUIAfterLogin();
-          setTimeout(closeModal, 900);
+          setTimeout(closeModal, 1000);
         } else {
-          setMessage(credsMessage, res.message || "Admin login failed.", "error");
+          setMessage(credsMessage, res.message || "Login failed.", "error");
         }
       });
 
-      // Tab clicks
+      // Admin login
+      adminLoginBtn.addEventListener("click", async () => {
+        const u = adminUser.value.trim();
+        const p = adminPass.value.trim();
+        if (!u || !p) {
+          setMessage(adminLoginMessage, "Enter admin credentials.", "error");
+          return;
+        }
+        adminLoginBtn.textContent = "Verifying...";
+        adminLoginBtn.disabled = true;
+        const res = await api.adminLogin(u, p);
+        adminLoginBtn.disabled = false;
+        adminLoginBtn.textContent = "Login as Admin";
+        if (res.success) {
+          authToken = res.token;
+          currentUser = { name: "Admin", user_id: "ADMIN" };
+          isAdmin = true;
+          setMessage(adminLoginMessage, "Admin login successful.", "success");
+          persistAuth();
+          updateUIAfterLogin();
+          setTimeout(closeModal, 1000);
+        } else {
+          setMessage(adminLoginMessage, res.message || "Admin login failed.", "error");
+        }
+      });
+
+      // Tabs
       tabOtp.addEventListener("click", () => setActiveTab("otp"));
       tabCreds.addEventListener("click", () => setActiveTab("creds"));
 
-      // Open/close sources
-      navLogin.addEventListener("click", () => openModal());
-      heroLoginBtn.addEventListener("click", () => openModal());
-      adminLoginLink.addEventListener("click", () => { setActiveTab("creds"); openModal(); });
+      // Open/close modal
+      navLogin.addEventListener("click", () => openModal("user"));
+      heroLoginBtn.addEventListener("click", () => openModal("user"));
+      adminLoginLink.addEventListener("click", () => openModal("admin"));
       closeBtn.addEventListener("click", closeModal);
-
       backdrop.addEventListener("click", (e) => {
         if (e.target === backdrop) closeModal();
       });
     }
 
-    // ===== DASHBOARD & AUTH PERSISTENCE =====
+    // DASHBOARD
     function initDashboard() {
       const navDashboard = document.getElementById("navDashboard");
       const userDash = document.getElementById("userDashboard");
@@ -1834,10 +1741,8 @@
         showElement(bookSection);
         if (dashUserTagline && currentUser) {
           dashUserTagline.textContent =
-            "Welcome, " +
-            (currentUser.name || currentUser.email || currentUser.user_id);
+            "Welcome, " + (currentUser.name || currentUser.email || currentUser.user_id);
         }
-
         api.getMyAppointments().then((apps) => {
           if (!apps || apps.length === 0) {
             userAppointmentsBody.innerHTML =
@@ -1847,22 +1752,17 @@
             statPending.textContent = "0";
             return;
           }
-
-          let confirmed = 0,
-            pending = 0;
-          userAppointmentsBody.innerHTML = apps
-            .map((a) => {
-              if (a.status === "confirmed") confirmed++;
-              else if (a.status === "pending") pending++;
-              return `<tr>
-                <td>${a.doctor}</td>
-                <td>${a.date}</td>
-                <td>${a.time}</td>
-                <td>${renderStatusPill(a.status)}</td>
-              </tr>`;
-            })
-            .join("");
-
+          let confirmed = 0, pending = 0;
+          userAppointmentsBody.innerHTML = apps.map((a) => {
+            if (a.status === "confirmed") confirmed++;
+            else if (a.status === "pending") pending++;
+            return `<tr>
+              <td>${a.doctor}</td>
+              <td>${a.date}</td>
+              <td>${a.time}</td>
+              <td>${renderStatusPill(a.status)}</td>
+            </tr>`;
+          }).join("");
           statTotal.textContent = apps.length;
           statConfirmed.textContent = confirmed;
           statPending.textContent = pending;
@@ -1883,19 +1783,15 @@
           return;
         }
         adminTotal.textContent = apps.length;
-        adminAppointmentsBody.innerHTML = apps
-          .map(
-            (a) => `
-            <tr>
-              <td>${a.patient}</td>
-              <td>${a.doctor}</td>
-              <td>${a.date}</td>
-              <td>${a.time}</td>
-              <td>${renderStatusPill(a.status)}</td>
-            </tr>
-          `
-          )
-          .join("");
+        adminAppointmentsBody.innerHTML = apps.map((a) => `
+          <tr>
+            <td>${a.patient}</td>
+            <td>${a.doctor}</td>
+            <td>${a.date}</td>
+            <td>${a.time}</td>
+            <td>${renderStatusPill(a.status)}</td>
+          </tr>
+        `).join("");
       }
 
       function logout() {
@@ -1908,7 +1804,6 @@
         const emailInput = document.getElementById("email");
         if (emailInput) emailInput.value = "";
         localStorage.removeItem("tti_auth");
-        alert("Logged out.");
       }
 
       function loadFromStorage() {
@@ -1916,32 +1811,26 @@
         if (!raw) return;
         try {
           const saved = JSON.parse(raw);
-          authToken = saved.token || null;
-          currentUser = saved.user || null;
+          authToken = saved.token;
+          currentUser = saved.user;
           isAdmin = !!saved.isAdmin;
-          if (currentUser) {
+          if (authToken && currentUser) {
             updateUIAfterLogin();
           }
-        } catch (_) {
-          // ignore
-        }
+        } catch (_) {}
       }
 
       window.updateUIAfterLogin = function () {
         if (!currentUser) return;
         const emailInput = document.getElementById("email");
         if (emailInput && currentUser.email) emailInput.value = currentUser.email;
-
         if (isAdmin) showAdminDashboard();
         else showUserDashboard();
       };
 
       window.persistAuth = function () {
-        if (!currentUser) return;
-        localStorage.setItem(
-          "tti_auth",
-          JSON.stringify({ token: authToken, user: currentUser, isAdmin })
-        );
+        if (!authToken || !currentUser) return;
+        localStorage.setItem("tti_auth", JSON.stringify({ token: authToken, user: currentUser, isAdmin }));
       };
 
       navDashboard.addEventListener("click", () => {
@@ -1967,7 +1856,7 @@
       loadFromStorage();
     }
 
-    // ===== BOOKING FORM =====
+    // BOOKING FORM
     function initBookingForm() {
       const showFormBtn = document.getElementById("showFormBtn");
       const bookingForm = document.getElementById("bookingForm");
@@ -2042,79 +1931,6 @@
             res.message || "Failed to create appointment.",
             "error"
           );
-        }
-      });
-    }
-
-    // ===== DOCTOR MODAL / ELITE NEURAL REPORT =====
-    function initDoctorModal() {
-      const backdrop = document.getElementById("doctorModalBackdrop");
-      const closeBtn = document.getElementById("doctorModalClose");
-      const nameEl = document.getElementById("docModalName");
-      const titleEl = document.getElementById("docModalTitle");
-      const tierEl = document.getElementById("docModalTier");
-      const casesEl = document.getElementById("docModalCases");
-      const windowEl = document.getElementById("docModalWindow");
-      const bioEl = document.getElementById("docModalBio");
-      const respEl = document.getElementById("docModalResponse");
-      const opsEl = document.getElementById("docModalOps");
-      const clearanceEl = document.getElementById("docModalClearance");
-      const bookBtn = document.getElementById("docModalBookBtn");
-
-      let currentDoctorKey = null;
-
-      function openDoctorModal(key) {
-        const profile = DOCTOR_PROFILES[key];
-        if (!profile) return;
-        currentDoctorKey = key;
-
-        nameEl.textContent = profile.name;
-        titleEl.textContent = profile.title;
-        tierEl.textContent = profile.tier;
-        casesEl.textContent = profile.cases;
-        windowEl.textContent = profile.window;
-        bioEl.textContent = profile.bio;
-        respEl.textContent = profile.response;
-        opsEl.textContent = profile.ops;
-        clearanceEl.textContent = profile.clearance;
-
-        showElement(backdrop);
-      }
-
-      function closeDoctorModal() {
-        hideElement(backdrop);
-      }
-
-      document.querySelectorAll(".doctor-report-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const key = btn.getAttribute("data-doctor");
-          openDoctorModal(key);
-        });
-      });
-
-      closeBtn.addEventListener("click", closeDoctorModal);
-      backdrop.addEventListener("click", (e) => {
-        if (e.target === backdrop) closeDoctorModal();
-      });
-
-      // When "Book with this Doctor" clicked, scroll to booking + preselect doctor
-      bookBtn.addEventListener("click", () => {
-        closeDoctorModal();
-        const bookSec = document.getElementById("book");
-        const doctorSelect = document.getElementById("doctor");
-        if (bookSec) bookSec.scrollIntoView({ behavior: "smooth" });
-
-        if (doctorSelect && currentDoctorKey) {
-          const profile = DOCTOR_PROFILES[currentDoctorKey];
-          if (profile) {
-            // match by visible text
-            for (const opt of doctorSelect.options) {
-              if (opt.value && profile.name && opt.value.indexOf(profile.name) !== -1) {
-                doctorSelect.value = opt.value;
-                break;
-              }
-            }
-          }
         }
       });
     }
