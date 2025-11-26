@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Trauma Team .INT</title>
+  <title>Trauma Team INT</title>
   <style>
     :root {
       --bg-color: #000000;
@@ -930,7 +930,7 @@
         <div class="doctor-card">
           <div class="doctor-image-container">
             <img src="doctor1.jpg" alt="Dr. Sharma"
-                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👨‍⚕️</div>'; ">
+                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👨‍⚕️</div>';"/>
           </div>
           <h4>Dr. R. Sharma</h4>
           <p>Chief Medical Officer</p>
@@ -938,7 +938,7 @@
         <div class="doctor-card">
           <div class="doctor-image-container">
             <img src="doctor2.png" alt="Dr. Gupta"
-                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👩‍⚕️</div>'; ">
+                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👩‍⚕️</div>';"/>
           </div>
           <h4>Dr. M. Gupta</h4>
           <p>Orthopedic & Plastic Surgeon</p>
@@ -946,7 +946,7 @@
         <div class="doctor-card">
           <div class="doctor-image-container">
             <img src="doctor3.png" alt="Dr. Jyoti"
-                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👨‍⚕️</div>'; ">
+                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;doctor-img-fallback&quot;>👨‍⚕️</div>';"/>
           </div>
           <h4>Dr. Jyoti</h4>
           <p>Chief Neurosurgeon</p>
@@ -964,13 +964,13 @@
       <form class="booking-form" id="bookingForm" style="display:none; margin-top: 20px;">
         <div class="form-group">
           <label for="patientName">Full Name</label>
-          <input type="text" id="patientName" name="patientName" required>
+          <input type="text" id="patientName" name="patientName" required />
           <span class="error-message" id="nameError"></span>
         </div>
 
         <div class="form-group">
           <label for="email">Email (read-only from account)</label>
-          <input type="email" id="email" name="email" readonly>
+          <input type="email" id="email" name="email" readonly />
         </div>
 
         <div class="form-group">
@@ -986,13 +986,13 @@
 
         <div class="form-group">
           <label for="appointmentDate">Consultation Date</label>
-          <input type="date" id="appointmentDate" name="appointmentDate" required>
+          <input type="date" id="appointmentDate" name="appointmentDate" required />
           <span class="error-message" id="dateError"></span>
         </div>
 
         <div class="form-group">
           <label for="appointmentTime">Consultation Time</label>
-          <input type="time" id="appointmentTime" name="appointmentTime" required>
+          <input type="time" id="appointmentTime" name="appointmentTime" required />
           <span class="error-message" id="timeError"></span>
         </div>
 
@@ -1011,8 +1011,9 @@
     <section id="userDashboard" class="container js-scroll dashboard">
       <div class="dash-header">
         <div>
-          <div class="dash-title">User Dashboard</div>
-          <div class="dash-tagline" id="dashUserTagline">Welcome, ⚔ Operator ⚔</div>
+          <!-- User greeting set to “D” -->
+          <div class="dash-title">D</div>
+          <div class="dash-tagline" id="dashUserTagline">D</div>
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
           <button class="btn btn-secondary" id="dashBookBtn">Book Consultation</button>
@@ -1057,7 +1058,8 @@
     <section id="adminDashboard" class="container js-scroll dashboard" style="display:none;">
       <div class="dash-header">
         <div>
-          <div class="dash-title">NetRunner Medical Command</div>
+          <!-- Admin title set to “4” -->
+          <div class="dash-title">4</div>
           <div class="dash-tagline">Monitor and update all Trauma Team appointments</div>
         </div>
         <button class="btn btn-secondary" id="adminLogoutBtn">Logout Admin</button>
@@ -1148,7 +1150,7 @@
       <button class="modal-close" id="authCloseBtn">×</button>
       <div class="modal-header">
         <h3>Secure Login</h3>
-        <div class="modal-sub">OTP-based identity verification + generated credentials</div>
+        <div class="modal-sub">OTP-based identity or credential login. Backend decides.</div>
       </div>
 
       <div class="modal-tabs">
@@ -1163,12 +1165,12 @@
 
           <div class="form-group">
             <label for="otpEmail">Email Address</label>
-            <input type="email" id="otpEmail" placeholder="you@example.com">
+            <input type="email" id="otpEmail" placeholder="you@example.com" />
           </div>
 
           <div class="form-group" id="otpInputGroup" style="display:none;">
             <label for="otpCode">OTP Code</label>
-            <input type="text" id="otpCode" placeholder="Enter 6-digit OTP">
+            <input type="text" id="otpCode" placeholder="Enter 6-digit OTP" />
           </div>
 
           <button class="btn" id="otpActionBtn">Send OTP</button>
@@ -1189,11 +1191,11 @@
 
           <div class="form-group">
             <label for="loginUserId">User ID</label>
-            <input type="text" id="loginUserId" placeholder="e.g. TTI-2025-ABCD">
+            <input type="text" id="loginUserId" placeholder="e.g. TTI-2025-ABCD" />
           </div>
           <div class="form-group">
             <label for="loginPassword">Password</label>
-            <input type="password" id="loginPassword" placeholder="Enter your password">
+            <input type="password" id="loginPassword" placeholder="Enter your password" />
           </div>
           <button class="btn" id="loginCredsBtn">Login</button>
           <div id="credsMessage" class="message info" style="display:none;"></div>
@@ -1204,11 +1206,11 @@
           <div class="otp-step">Admin Access · Restricted</div>
           <div class="form-group">
             <label for="adminUser">Admin Username</label>
-            <input type="text" id="adminUser" placeholder="admin">
+            <input type="text" id="adminUser" placeholder="admin" />
           </div>
           <div class="form-group">
             <label for="adminPass">Admin Password</label>
-            <input type="password" id="adminPass" placeholder="••••••••">
+            <input type="password" id="adminPass" placeholder="••••••••" />
           </div>
           <button class="btn" id="adminLoginBtn">Login as Admin</button>
           <div id="adminLoginMessage" class="message info" style="display:none;"></div>
@@ -1218,19 +1220,23 @@
   </div>
 
   <script>
-    // CONFIG
+    // ================= CONFIG =================
     const API_BASE_URL = "https://traumateam-backend.onrender.com";
 
     let authToken = null;
     let currentUser = null;
     let isAdmin = false;
 
-    // LOW LEVEL REQUEST
+    // ============ LOW LEVEL REQUEST ===============
     async function apiRequest(path, { method = "GET", body, headers = {} } = {}, requireAuth = false) {
-      const finalHeaders = {
-        "Content-Type": "application/json",
-        ...headers,
-      };
+      const finalHeaders = { ...headers };
+
+      // Auto JSON content-type only if not overridden and not formdata/urlsearchparams
+      const isFormLike = (body instanceof FormData) || (body instanceof URLSearchParams);
+      if (!isFormLike && !("Content-Type" in finalHeaders)) {
+        finalHeaders["Content-Type"] = "application/json";
+      }
+
       if (requireAuth && authToken) {
         finalHeaders["Authorization"] = "Bearer " + authToken;
       }
@@ -1249,7 +1255,9 @@
 
         if (!res.ok) {
           const msg = (data && (data.detail || data.message)) || `Request failed (${res.status})`;
-          throw new Error(msg);
+          const error = new Error(msg);
+          error.status = res.status;
+          throw error;
         }
         return data;
       } catch (err) {
@@ -1258,8 +1266,9 @@
       }
     }
 
-    // HIGH-LEVEL API
+    // ============ HIGH-LEVEL API ===============
     const api = {
+      // OTP – if backend doesn’t implement, show friendly message
       async requestOtp(email) {
         try {
           const data = await apiRequest(
@@ -1269,6 +1278,12 @@
           );
           return { success: true, message: data.message || "OTP sent to " + email };
         } catch (err) {
+          if (err.status === 404) {
+            return {
+              success: false,
+              message: "OTP login is not enabled on the server. Please use 'Login with ID + Password'."
+            };
+          }
           return { success: false, message: err.message };
         }
       },
@@ -1292,11 +1307,19 @@
             temp_password: data.password || data.temp_password || "Check your email",
           };
         } catch (err) {
+          if (err.status === 404) {
+            return {
+              success: false,
+              message: "OTP verify endpoint not found. Use credential login instead."
+            };
+          }
           return { success: false, message: err.message };
         }
       },
 
+      // Credential login – tries JSON first, then form-encoded if 422
       async loginWithCreds(userId, password) {
+        // Try JSON payload first
         try {
           const data = await apiRequest(
             "/auth/login",
@@ -1314,6 +1337,37 @@
             },
           };
         } catch (err) {
+          // If backend expects OAuth2PasswordRequestForm style
+          if (err.status === 422) {
+            try {
+              const formBody = new URLSearchParams();
+              formBody.append("username", userId);
+              formBody.append("password", password);
+
+              const data = await apiRequest(
+                "/auth/login",
+                {
+                  method: "POST",
+                  body: formBody,
+                  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                },
+                false
+              );
+
+              const user = data.user || {};
+              return {
+                success: true,
+                token: data.access_token,
+                user: {
+                  email: user.email || (userId + "@example.com"),
+                  name: user.full_name || user.name || user.username || userId,
+                  user_id: user.user_id || user.username || userId,
+                },
+              };
+            } catch (err2) {
+              return { success: false, message: err2.message };
+            }
+          }
           return { success: false, message: err.message };
         }
       },
@@ -1358,6 +1412,7 @@
       },
 
       async adminLogin(user, pass) {
+        // same dual strategy as user login
         try {
           const data = await apiRequest(
             "/admin/login",
@@ -1366,6 +1421,25 @@
           );
           return { success: true, token: data.access_token };
         } catch (err) {
+          if (err.status === 422) {
+            try {
+              const formBody = new URLSearchParams();
+              formBody.append("username", user);
+              formBody.append("password", pass);
+              const data = await apiRequest(
+                "/admin/login",
+                {
+                  method: "POST",
+                  body: formBody,
+                  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                },
+                false
+              );
+              return { success: true, token: data.access_token };
+            } catch (err2) {
+              return { success: false, message: err2.message };
+            }
+          }
           return { success: false, message: err.message };
         }
       },
@@ -1388,7 +1462,7 @@
       },
     };
 
-    // GENERIC HELPERS
+    // ========= GENERIC HELPERS =========
     function showElement(el) { if (el) el.style.display = "block"; }
     function hideElement(el) { if (el) el.style.display = "none"; }
     function setMessage(el, text, type = "info") {
@@ -1408,7 +1482,6 @@
     // LOADING
     window.addEventListener("load", () => {
       const loading = document.getElementById("loadingScreen");
-      if (!loading) return;
       setTimeout(() => {
         loading.style.opacity = "0";
         setTimeout(() => (loading.style.display = "none"), 500);
@@ -1449,8 +1522,6 @@
       const quickOptions = document.getElementById("quickOptions");
       const typingIndicator = document.getElementById("typingIndicator");
 
-      if (!chatToggle || !chatContainer || !chatMessages || !quickOptions || !typingIndicator) return;
-
       const botResponses = {
         emergency:
           "🚨 EMERGENCY PROTOCOL ACTIVATED! Trauma Team units are en route. Keep area clear and follow basic life support steps.",
@@ -1484,13 +1555,15 @@
         }, 1500);
       }
 
-      chatToggle.addEventListener("click", () => {
-        chatContainer.style.display = "flex";
-      });
+      if (chatToggle)
+        chatToggle.addEventListener("click", () => {
+          chatContainer.style.display = "flex";
+        });
 
-      closeChat.addEventListener("click", () => {
-        chatContainer.style.display = "none";
-      });
+      if (closeChat)
+        closeChat.addEventListener("click", () => {
+          chatContainer.style.display = "none";
+        });
 
       document.querySelectorAll(".quick-option").forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -1540,16 +1613,6 @@
       const adminLoginBtn = document.getElementById("adminLoginBtn");
       const adminLoginMessage = document.getElementById("adminLoginMessage");
 
-      if (
-        !backdrop || !tabOtp || !tabCreds || !otpPane || !credsPane || !adminPane ||
-        !otpEmail || !otpCode || !otpInputGroup || !otpStepLabel || !otpActionBtn ||
-        !otpMessage || !credentialsBox || !credUserId || !credPassword ||
-        !loginUserId || !loginPassword || !loginCredsBtn || !credsMessage ||
-        !adminUser || !adminPass || !adminLoginBtn || !adminLoginMessage
-      ) {
-        return;
-      }
-
       let otpStep = 1;
 
       function openModal(mode = "user") {
@@ -1576,9 +1639,7 @@
         }
       }
 
-      function closeModal() {
-        hideElement(backdrop);
-      }
+      function closeModal() { hideElement(backdrop); }
 
       function setActiveTab(tab) {
         if (tab === "otp") {
@@ -1616,6 +1677,14 @@
           otpActionBtn.disabled = true;
           const res = await api.requestOtp(email);
           otpActionBtn.disabled = false;
+
+          // If backend doesn't support OTP, tell user to use creds
+          if (!res.success && res.message.includes("OTP login is not enabled")) {
+            otpActionBtn.textContent = "Send OTP";
+            setMessage(otpMessage, res.message, "error");
+            return;
+          }
+
           otpActionBtn.textContent = "Verify OTP";
           if (res.success) {
             otpStep = 2;
@@ -1634,6 +1703,8 @@
           otpActionBtn.textContent = "Verifying...";
           otpActionBtn.disabled = true;
           const res = await api.verifyOtp(email, otp);
+          otpActionBtn.disabled = false;
+          otpActionBtn.textContent = "Verify OTP";
           if (res.success) {
             authToken = res.token;
             currentUser = res.user;
@@ -1653,8 +1724,6 @@
             updateUIAfterLogin();
             setTimeout(closeModal, 1500);
           } else {
-            otpActionBtn.textContent = "Verify OTP";
-            otpActionBtn.disabled = false;
             setMessage(otpMessage, res.message || "Invalid OTP", "error");
           }
         }
@@ -1717,10 +1786,10 @@
       tabCreds.addEventListener("click", () => setActiveTab("creds"));
 
       // Open/close modal
-      if (navLogin) navLogin.addEventListener("click", () => openModal("user"));
-      if (heroLoginBtn) heroLoginBtn.addEventListener("click", () => openModal("user"));
-      if (adminLoginLink) adminLoginLink.addEventListener("click", () => openModal("admin"));
-      if (closeBtn) closeBtn.addEventListener("click", closeModal);
+      navLogin.addEventListener("click", () => openModal("user"));
+      heroLoginBtn.addEventListener("click", () => openModal("user"));
+      adminLoginLink.addEventListener("click", () => openModal("admin"));
+      closeBtn.addEventListener("click", closeModal);
       backdrop.addEventListener("click", (e) => {
         if (e.target === backdrop) closeModal();
       });
@@ -1745,26 +1814,22 @@
       const adminTotal = document.getElementById("adminTotal");
       const adminAppointmentsBody = document.getElementById("adminAppointmentsBody");
 
-      if (!userDash || !adminDash || !bookSection || !userAppointmentsBody || !adminAppointmentsBody) {
-        return;
-      }
-
       function showUserDashboard() {
         if (!currentUser || isAdmin) return;
         hideElement(adminDash);
         showElement(userDash);
         showElement(bookSection);
         if (dashUserTagline && currentUser) {
-          const name = currentUser.name || currentUser.email || currentUser.user_id || "Operator";
-          dashUserTagline.textContent = "Welcome, ⚔ " + name + " ⚔";
+          dashUserTagline.textContent =
+            "D · " + (currentUser.name || currentUser.email || currentUser.user_id);
         }
         api.getMyAppointments().then((apps) => {
           if (!apps || apps.length === 0) {
             userAppointmentsBody.innerHTML =
               '<tr><td colspan="4" style="text-align:center; color:var(--text-secondary);">No appointments yet.</td></tr>';
-            if (statTotal) statTotal.textContent = "0";
-            if (statConfirmed) statConfirmed.textContent = "0";
-            if (statPending) statPending.textContent = "0";
+            statTotal.textContent = "0";
+            statConfirmed.textContent = "0";
+            statPending.textContent = "0";
             return;
           }
           let confirmed = 0, pending = 0;
@@ -1778,9 +1843,9 @@
               <td>${renderStatusPill(a.status)}</td>
             </tr>`;
           }).join("");
-          if (statTotal) statTotal.textContent = apps.length;
-          if (statConfirmed) statConfirmed.textContent = confirmed;
-          if (statPending) statPending.textContent = pending;
+          statTotal.textContent = apps.length;
+          statConfirmed.textContent = confirmed;
+          statPending.textContent = pending;
         });
       }
 
@@ -1794,10 +1859,10 @@
         if (!apps || apps.length === 0) {
           adminAppointmentsBody.innerHTML =
             '<tr><td colspan="5" style="text-align:center; color:var(--text-secondary);">No appointments found.</td></tr>';
-          if (adminTotal) adminTotal.textContent = "0";
+          adminTotal.textContent = "0";
           return;
         }
-        if (adminTotal) adminTotal.textContent = apps.length;
+        adminTotal.textContent = apps.length;
         adminAppointmentsBody.innerHTML = apps.map((a) => `
           <tr>
             <td>${a.patient}</td>
@@ -1818,16 +1883,11 @@
         hideElement(bookSection);
         const emailInput = document.getElementById("email");
         if (emailInput) emailInput.value = "";
-        try {
-          localStorage.removeItem("tti_auth");
-        } catch (_) {}
+        localStorage.removeItem("tti_auth");
       }
 
       function loadFromStorage() {
-        let raw = null;
-        try {
-          raw = localStorage.getItem("tti_auth");
-        } catch (_) {}
+        const raw = localStorage.getItem("tti_auth");
         if (!raw) return;
         try {
           const saved = JSON.parse(raw);
@@ -1850,21 +1910,17 @@
 
       window.persistAuth = function () {
         if (!authToken || !currentUser) return;
-        try {
-          localStorage.setItem("tti_auth", JSON.stringify({ token: authToken, user: currentUser, isAdmin }));
-        } catch (_) {}
+        localStorage.setItem("tti_auth", JSON.stringify({ token: authToken, user: currentUser, isAdmin }));
       };
 
-      if (navDashboard) {
-        navDashboard.addEventListener("click", () => {
-          if (!currentUser) {
-            alert("Please login first.");
-            return;
-          }
-          if (isAdmin) showAdminDashboard();
-          else showUserDashboard();
-        });
-      }
+      navDashboard.addEventListener("click", () => {
+        if (!currentUser) {
+          alert("Please login first.");
+          return;
+        }
+        if (isAdmin) showAdminDashboard();
+        else showUserDashboard();
+      });
 
       if (dashBookBtn)
         dashBookBtn.addEventListener("click", () => {
@@ -1892,7 +1948,7 @@
         appointmentDateInput.min = today;
       }
 
-      if (showFormBtn && bookingForm) {
+      if (showFormBtn) {
         showFormBtn.addEventListener("click", () => {
           bookingForm.style.display = "block";
           showFormBtn.style.display = "none";
@@ -1907,24 +1963,12 @@
           return;
         }
 
-        const nameEl = document.getElementById("patientName");
-        const emailEl = document.getElementById("email");
-        const doctorEl = document.getElementById("doctor");
-        const dateEl = document.getElementById("appointmentDate");
-        const timeEl = document.getElementById("appointmentTime");
-        const notesEl = document.getElementById("message");
-
-        if (!nameEl || !emailEl || !doctorEl || !dateEl || !timeEl) {
-          setMessage(formMessage, "Form not initialized correctly.", "error");
-          return;
-        }
-
-        const name = nameEl.value.trim();
-        const email = emailEl.value.trim();
-        const doctor = doctorEl.value;
-        const date = dateEl.value;
-        const time = timeEl.value;
-        const notes = notesEl ? notesEl.value.trim() : "";
+        const name = document.getElementById("patientName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const doctor = document.getElementById("doctor").value;
+        const date = document.getElementById("appointmentDate").value;
+        const time = document.getElementById("appointmentTime").value;
+        const notes = document.getElementById("message").value.trim();
 
         if (!name || !doctor || !date || !time) {
           setMessage(formMessage, "Please fill all required fields.", "error");
@@ -1932,11 +1976,6 @@
         }
 
         const submitBtn = document.getElementById("submitBooking");
-        if (!submitBtn) {
-          setMessage(formMessage, "Submit button missing.", "error");
-          return;
-        }
-
         const originalText = submitBtn.textContent;
         submitBtn.textContent = "Processing...";
         submitBtn.disabled = true;
@@ -1963,7 +2002,7 @@
           setTimeout(() => {
             bookingForm.reset();
             bookingForm.style.display = "none";
-            if (showFormBtn) showFormBtn.style.display = "inline-flex";
+            showFormBtn.style.display = "inline-flex";
             if (window.updateUIAfterLogin) window.updateUIAfterLogin();
           }, 1200);
         } else {
