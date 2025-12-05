@@ -1384,28 +1384,47 @@
       });
 
       // booking submission (fixed, no stray calls)
-      if (bookingForm) {
-        bookingForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          hideMessage('formMessage');
+     if (bookingForm) {
+  bookingForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    hideMessage('formMessage');
 
-          if (!validateForm()) return;
+    if (!validateForm()) return;
 
-          const submitBtn = document.getElementById('submitBooking');
-          const originalText = submitBtn.textContent;
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Processing...';
+    const submitBtn = document.getElementById('submitBooking');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Processing...';
 
-          try {
-            const payload = {
-              patient_name: document.getElementById('patientName').value.trim(),
-              email: document.getElementById('email').value.trim(),
-              doctor: document.getElementById('doctor').value,
-              appointment_date: document.getElementById('appointmentDate').value,
-              appointment_time: document.getElementById('appointmentTime').value,
-              message: document.getElementById('message').value.trim() || 'No additional notes'
-            };
+    try {
+      const payload = {
+        patient_name: document.getElementById('patientName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        doctor: document.getElementById('doctor').value,
+        appointment_date: document.getElementById('appointmentDate').value,
+        appointment_time: document.getElementById('appointmentTime').value,
+        message: document.getElementById('message').value.trim() || 'No additional notes'
+      };
+
+      if (!DOCTOR_PRICES[payload.doctor]) {
+        throw new Error('Invalid doctor selection');
+      }
+
+      const result = await api.createBooking(payload);
+
+      // FIRST show success animation
+      showEmailSuccessModal(result);
+
+    } catch (err) {
+      console.error('Booking error', err);
+      showMessage('formMessage', `Error: ${err.message || 'Booking failed'}`, 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+}
 
             // double-check doctor; server validates again
             if (!DOCTOR_PRICES[payload.doctor]) {
