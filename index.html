@@ -337,6 +337,43 @@
         margin: 0;
         line-height: 1.5;
     }
+/* --- PATCH 3: Animated Doctor Selection UI --- */
+.doctor-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.doctor-card.selected {
+  border-color: var(--accent-red);
+  box-shadow: 0 0 25px rgba(229, 9, 20, 0.6);
+  transform: scale(1.06);
+}
+
+.doctor-card::after {
+  content: "SELECTED";
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: var(--accent-red);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 8px 0;
+  transition: bottom 0.3s ease;
+}
+
+.doctor-card.selected::after {
+  bottom: 0;
+}
+
+.doctor-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(229, 9, 20, 0.35);
+}
 
     .cta { text-align: center; }
     .cta h2 { color: var(--text-primary); }
@@ -1012,6 +1049,44 @@
       <div id="invoiceMessage" class="message" style="display: none; margin-top: 20px;"></div>
     </div>
   </section>
+<!-- Email Success Modal -->
+<div id="emailSuccessModal" 
+     style="
+       position: fixed; top:0; left:0; width:100%; height:100%;
+       background: rgba(0,0,0,0.85); display:none; z-index:3000;
+       justify-content:center; align-items:center;
+     ">
+  <div style="
+      background: var(--primary-dark); 
+      padding:40px; border-radius:12px;
+      border:1px solid var(--accent-red);
+      width:90%; max-width:400px; text-align:center;
+      box-shadow:0 0 20px rgba(229,9,20,0.5);
+      animation: fadeInScale .4s ease-out;
+  ">
+    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" 
+         viewBox="0 0 52 52" style="margin:auto;">
+      <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+      <path class="checkmark__check" fill="none" 
+            d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+    </svg>
+
+    <h2 style="margin-top:20px; color:var(--accent-green);">Email Sent!</h2>
+    <p id="emailSuccessText" style="color:var(--text-secondary); margin-top:10px;">
+      Your booking invoice has been emailed to you.
+    </p>
+
+    <button class="btn" onclick="closeEmailSuccessModal()" 
+            style="margin-top:20px; width:100%;">Continue</button>
+  </div>
+</div>
+
+<style>
+@keyframes fadeInScale {
+  0% { opacity:0; transform:scale(0.8);}
+  100% { opacity:1; transform:scale(1);}
+}
+</style>
 
   <div class="chat-widget">
     <button class="chat-button" id="chatToggle">💬</button>
@@ -1255,6 +1330,7 @@
       if (appointmentDateInput) appointmentDateInput.min = today;
 
       // booking submission
+      showInvoiceScreen(result);
       if (bookingForm) {
         bookingForm.addEventListener('submit', async (e) => {
           e.preventDefault();
@@ -1371,6 +1447,27 @@
 
     // Helper to show booking section
     function showBookingSection(){
+      function showEmailSuccessModal(booking){
+  currentBooking = booking;
+
+  const fullName = escapeHtml(booking.patient_name || '');
+  const email = escapeHtml(booking.email || '');
+
+  document.getElementById('emailSuccessText').innerHTML =
+    `Hello <strong>${fullName}</strong>,<br>Your consultation invoice has been emailed to <strong>${email}</strong>.`;
+
+  document.getElementById('emailSuccessModal').style.display = 'flex';
+
+  // Auto-open invoice after delay
+  setTimeout(() => {
+    closeEmailSuccessModal();
+    showInvoiceScreen(booking);
+  }, 3000);
+}
+
+function closeEmailSuccessModal(){
+  document.getElementById('emailSuccessModal').style.display = 'none';
+}
       document.querySelectorAll('main > section').forEach(s => s.style.display = 'none');
       const bookSection = document.getElementById('book');
       if (bookSection) bookSection.style.display = 'block';
