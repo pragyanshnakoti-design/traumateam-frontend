@@ -1,4 +1,3 @@
-<!-- PART 1: head + css + body header/hero/features/doctors (paste first) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -337,44 +336,6 @@
         font-size: 1rem;
         margin: 0;
         line-height: 1.5;
-    }
-
-    /* --- PATCH 3: Animated Doctor Selection UI --- */
-    .doctor-card {
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .doctor-card.selected {
-      border-color: var(--accent-red);
-      box-shadow: 0 0 25px rgba(229, 9, 20, 0.6);
-      transform: scale(1.06);
-    }
-
-    .doctor-card::after {
-      content: "SELECTED";
-      position: absolute;
-      bottom: -40px;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      background: var(--accent-red);
-      color: white;
-      font-size: 0.85rem;
-      font-weight: bold;
-      padding: 8px 0;
-      transition: bottom 0.3s ease;
-    }
-
-    .doctor-card.selected::after {
-      bottom: 0;
-    }
-
-    .doctor-card:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 12px 30px rgba(229, 9, 20, 0.35);
     }
 
     .cta { text-align: center; }
@@ -863,6 +824,7 @@
   </style>
 </head>
 <body>
+
   <!-- Loading Screen -->
   <div id="loadingScreen">
     <img src="logo.webp" alt="Trauma Team Logo" class="loading-logo" onerror="this.style.display='none';">
@@ -910,21 +872,21 @@
     <section class="doctors js-scroll">
       <h2>Meet Our Elite Responders</h2>
       <div class="doctor-list">
-        <div class="doctor-card" data-doctor="Dr. R. Sharma">
+        <div class="doctor-card">
           <div class="doctor-image-container">
             <img src="doctor1.jpg" alt="Dr. Sharma" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'doctor-img-fallback\'>👨‍⚕️</div>';">
           </div>
           <h4>Dr. R. Sharma</h4>
           <p>Chief Medical Officer</p>
         </div>
-        <div class="doctor-card" data-doctor="Dr. M. Gupta">
+        <div class="doctor-card">
           <div class="doctor-image-container">
             <img src="doctor2.png" alt="Dr. Gupta" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'doctor-img-fallback\'>👩‍⚕️</div>';">
           </div>
           <h4>Dr. M. Gupta</h4>
           <p>Orthopedic & Plastic Surgeon</p>
         </div>
-        <div class="doctor-card" data-doctor="Dr. Jyoti">
+        <div class="doctor-card">
           <div class="doctor-image-container">
             <img src="doctor3.png" alt="Dr. Jyoti" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'doctor-img-fallback\'>👨‍⚕️</div>';">
           </div>
@@ -933,7 +895,7 @@
         </div>
       </div>
     </section>
-<!-- PART 2: booking form, invoice, email modal, chat, footer (paste second) -->
+
     <section id="book" class="container cta js-scroll">
       <h2>Schedule Consultation</h2>
       <p>Your connection to our elite medical team is one click away.</p>
@@ -941,6 +903,7 @@
       <button id="showFormBtn" class="btn" type="button">Book Now</button>
 
       <form class="booking-form" id="bookingForm" style="display: none; margin-top: 20px;">
+
         <div class="form-group">
           <label for="patientName">Full Name:</label>
           <input type="text" id="patientName" name="patientName" required maxlength="200">
@@ -984,6 +947,7 @@
         <button type="submit" class="btn" id="submitBooking">Confirm Consultation</button>
 
         <div id="formMessage" class="message" style="display: none;"></div>
+
       </form>
     </section>
 
@@ -1049,45 +1013,6 @@
     </div>
   </section>
 
-  <!-- Email Success Modal -->
-  <div id="emailSuccessModal"
-       style="
-         position: fixed; top:0; left:0; width:100%; height:100%;
-         background: rgba(0,0,0,0.85); display:none; z-index:3000;
-         justify-content:center; align-items:center;
-       ">
-    <div style="
-        background: var(--primary-dark);
-        padding:40px; border-radius:12px;
-        border:1px solid var(--accent-red);
-        width:90%; max-width:400px; text-align:center;
-        box-shadow:0 0 20px rgba(229,9,20,0.5);
-        animation: fadeInScale .4s ease-out;
-    ">
-      <svg class="checkmark" xmlns="http://www.w3.org/2000/svg"
-           viewBox="0 0 52 52" style="margin:auto;">
-        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-        <path class="checkmark__check" fill="none"
-              d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-      </svg>
-
-      <h2 style="margin-top:20px; color:var(--accent-green);">Email Sent!</h2>
-      <p id="emailSuccessText" style="color:var(--text-secondary); margin-top:10px;">
-        Your booking invoice has been emailed to you.
-      </p>
-
-      <button class="btn" onclick="closeEmailSuccessModal()"
-              style="margin-top:20px; width:100%;">Continue</button>
-    </div>
-  </div>
-
-  <style>
-  @keyframes fadeInScale {
-    0% { opacity:0; transform:scale(0.8);}
-    100% { opacity:1; transform:scale(1);}
-  }
-  </style>
-
   <div class="chat-widget">
     <button class="chat-button" id="chatToggle">💬</button>
     <div class="chat-container" id="chatContainer">
@@ -1133,14 +1058,14 @@
       <p style="margin-top: 15px;">&copy; 2025 Trauma Team International. All rights reserved.</p>
     </div>
   </footer>
-<!-- PART 3: JavaScript (paste last) -->
+
   <script>
     /******************************************************************
      * Frontend JS - Booking only (payment removed)
-     * Works with backend at API_BASE_URL (render URL used)
+     * Works with backend at API_BASE_URL (default: http://localhost:8000)
      * Secure display (escapeHtml), CORS-ready fetch, and robust errors
      ******************************************************************/
-    const API_BASE_URL = 'https://traumateam-backend-1.onrender.com';
+    const API_BASE_URL = 'http://localhost:8000';
 
     // Doctor pricing (used only for invoice display)
     const DOCTOR_PRICES = {
@@ -1227,11 +1152,11 @@
         if (err) err.textContent = '';
       });
 
-      const name = (document.getElementById('patientName') || {}).value?.trim();
-      const email = (document.getElementById('email') || {}).value?.trim();
-      const doctor = (document.getElementById('doctor') || {}).value;
-      const dateVal = (document.getElementById('appointmentDate') || {}).value;
-      const timeVal = (document.getElementById('appointmentTime') || {}).value;
+      const name = document.getElementById('patientName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const doctor = document.getElementById('doctor').value;
+      const dateVal = document.getElementById('appointmentDate').value;
+      const timeVal = document.getElementById('appointmentTime').value;
 
       if (!name) { document.getElementById('nameError').textContent = 'This field is required'; valid = false; }
       if (!email) { document.getElementById('emailError').textContent = 'This field is required'; valid = false; }
@@ -1270,9 +1195,9 @@
       populateInvoice(booking);
       document.getElementById('invoiceScreen').style.display = 'flex';
       // hide main layout to prevent background interactions
-      const main = document.querySelector('main'); if (main) main.style.display = 'none';
-      const header = document.querySelector('header'); if (header) header.style.display = 'none';
-      const footer = document.querySelector('footer'); if (footer) footer.style.display = 'none';
+      document.querySelector('main').style.display = 'none';
+      document.querySelector('header').style.display = 'none';
+      document.querySelector('footer').style.display = 'none';
       window.scrollTo(0,0);
     }
 
@@ -1291,32 +1216,6 @@
       hideMessage('formMessage');
     }
 
-    // Email success modal functions (clean and global)
-    function showEmailSuccessModal(booking){
-      currentBooking = booking;
-      const fullName = escapeHtml(booking.patient_name || '');
-      const email = escapeHtml(booking.email || '');
-
-      const textEl = document.getElementById('emailSuccessText');
-      if (textEl) {
-        textEl.innerHTML = `Hello <strong>${fullName}</strong>,<br>Your consultation invoice has been emailed to <strong>${email}</strong>.`;
-      }
-
-      const modal = document.getElementById('emailSuccessModal');
-      if (modal) modal.style.display = 'flex';
-
-      // Auto-open invoice after delay (3s)
-      setTimeout(() => {
-        closeEmailSuccessModal();
-        showInvoiceScreen(booking);
-      }, 3000);
-    }
-
-    function closeEmailSuccessModal(){
-      const modal = document.getElementById('emailSuccessModal');
-      if (modal) modal.style.display = 'none';
-    }
-
     // Appointment history: backend requires auth; we display friendly message
     async function showAppointmentHistory(){
       // hide sections
@@ -1328,18 +1227,7 @@
       list.innerHTML = '<p style="text-align:center;color:var(--text-secondary)"><em>Appointment history is available for logged-in users only.</em></p>';
     }
 
-    // Helper to show booking section
-    function showBookingSection(){
-      document.querySelectorAll('main > section').forEach(s => s.style.display = 'none');
-      const bookSection = document.getElementById('book');
-      if (bookSection) bookSection.style.display = 'block';
-      const showFormBtn = document.getElementById('showFormBtn');
-      const bookingForm = document.getElementById('bookingForm');
-      if (showFormBtn) showFormBtn.style.display = 'inline-block';
-      if (bookingForm) bookingForm.style.display = 'none';
-    }
-
-    // DOM ready
+    // On DOM ready
     document.addEventListener('DOMContentLoaded', () => {
       // Loading screen hide
       window.addEventListener('load', () => {
@@ -1366,78 +1254,38 @@
       const appointmentDateInput = document.getElementById('appointmentDate');
       if (appointmentDateInput) appointmentDateInput.min = today;
 
-      // Doctor selection UI: clicking a doctor-card selects it and sets the select
-      const doctorCards = document.querySelectorAll('.doctor-card');
-      doctorCards.forEach(card => {
-        card.addEventListener('click', () => {
-          // remove selected class from others
-          doctorCards.forEach(c => c.classList.remove('selected'));
-          card.classList.add('selected');
-          const doc = card.getAttribute('data-doctor');
-          const select = document.getElementById('doctor');
-          if (select && doc) {
-            select.value = doc;
-            // remove any validation errors visually
-            const de = document.getElementById('doctorError'); if (de) de.textContent = '';
-          }
-        });
-      });
+      // booking submission
+      if (bookingForm) {
+        bookingForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          hideMessage('formMessage');
 
-      // booking submission (fixed, no stray calls)
-     if (bookingForm) {
-  bookingForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    hideMessage('formMessage');
+          if (!validateForm()) return;
 
-    if (!validateForm()) return;
+          const submitBtn = document.getElementById('submitBooking');
+          const originalText = submitBtn.textContent;
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Processing...';
 
-    const submitBtn = document.getElementById('submitBooking');
-    const originalText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Processing...';
+          try {
+            const payload = {
+              patient_name: document.getElementById('patientName').value.trim(),
+              email: document.getElementById('email').value.trim(),
+              doctor: document.getElementById('doctor').value,
+              appointment_date: document.getElementById('appointmentDate').value,
+              appointment_time: document.getElementById('appointmentTime').value,
+              message: document.getElementById('message').value.trim() || 'No additional notes'
+            };
 
-    try {
-      const payload = {
-        patient_name: document.getElementById('patientName').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        doctor: document.getElementById('doctor').value,
-        appointment_date: document.getElementById('appointmentDate').value,
-        appointment_time: document.getElementById('appointmentTime').value,
-        message: document.getElementById('message').value.trim() || 'No additional notes'
-      };
-
-      if (!DOCTOR_PRICES[payload.doctor]) {
-        throw new Error('Invalid doctor selection');
-      }
-
-      const result = await api.createBooking(payload);
-
-      // FIRST show success animation
-      showEmailSuccessModal(result);
-
-    } catch (err) {
-      console.error('Booking error', err);
-      showMessage('formMessage', `Error: ${err.message || 'Booking failed'}`, 'error');
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-    }
-  });
-}
-
-            // double-check doctor; server validates again
+            // double-check doctor server-side will also validate
             if (!DOCTOR_PRICES[payload.doctor]) {
               throw new Error('Invalid doctor selection');
             }
 
             const result = await api.createBooking(payload);
-            // server returns booking object with id & invoice_id
-            currentBooking = result;
-
-            // show animated email-sent modal then invoice (non-blocking)
-            showEmailSuccessModal(result);
-
+            // result should include id and invoice_id
+            showInvoiceScreen(result);
             showMessage('formMessage', 'Booking created successfully. Check your email for confirmation.', 'success');
 
           } catch (err) {
@@ -1463,7 +1311,7 @@
 
       scrollElements.forEach(el => { if (!el.classList.contains('hero-content')) observer.observe(el); });
 
-      // Chat functionality
+      // Chat functionality (unchanged)
       const chatToggle = document.getElementById('chatToggle');
       const chatContainer = document.getElementById('chatContainer');
       const closeChat = document.getElementById('closeChat');
@@ -1488,10 +1336,10 @@
       }
 
       function showTyping() {
-        if (typingIndicator) typingIndicator.style.display = 'block';
-        if (chatMessages) chatMessages.scrollTop = chatMessages.scrollHeight;
+        typingIndicator.style.display = 'block';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
       }
-      function hideTyping() { if (typingIndicator) typingIndicator.style.display = 'none'; }
+      function hideTyping() { typingIndicator.style.display = 'none'; }
 
       function handleQuickOption(option) {
         const btn = quickOptions.querySelector(`[data-option="${option}"]`);
@@ -1511,16 +1359,26 @@
 
       document.addEventListener('click', (e)=>{
         if (chatContainer && chatContainer.style.display === 'flex') {
-          if (!chatContainer.contains(e.target) && chatToggle && !chatToggle.contains(e.target) && footerChatBtn && !footerChatBtn.contains(e.target)) {
+          if (!chatContainer.contains(e.target) && !chatToggle.contains(e.target) && !footerChatBtn.contains(e.target)) {
             chatContainer.style.display = 'none';
           }
         }
       });
 
       // Invoice Done button
-      const doneBtn = document.getElementById('doneButton');
-      if (doneBtn) doneBtn.addEventListener('click', ()=> closeInvoiceScreen());
+      document.getElementById('doneButton').addEventListener('click', ()=> closeInvoiceScreen());
     });
+
+    // Helper to show booking section
+    function showBookingSection(){
+      document.querySelectorAll('main > section').forEach(s => s.style.display = 'none');
+      const bookSection = document.getElementById('book');
+      if (bookSection) bookSection.style.display = 'block';
+      const showFormBtn = document.getElementById('showFormBtn');
+      const bookingForm = document.getElementById('bookingForm');
+      if (showFormBtn) showFormBtn.style.display = 'inline-block';
+      if (bookingForm) bookingForm.style.display = 'none';
+    }
   </script>
 </body>
 </html>
